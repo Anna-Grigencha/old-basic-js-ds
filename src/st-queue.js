@@ -27,11 +27,11 @@ module.exports = class Queue {
     if (this.length === 0) {
       this.first = new ListNode(value);
     } else {
-      let current = this.first;
-      while (current.next) {
-        current = current.next;
+      let n = this.first;
+      while (n.next) {
+        n = n.next;
       }
-      current.next = new ListNode(value);
+      n.next = new ListNode(value);
     }
     this.length++;
   }
@@ -40,9 +40,8 @@ module.exports = class Queue {
     if (this.first) {
       let result = this.first;
       this.first = result.next;
-      // this.length--;
-
       return result.value;
     }
     return null;
+  }
 };
